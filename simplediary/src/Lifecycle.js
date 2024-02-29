@@ -1,6 +1,14 @@
 import React, { useEffect, useState } from "react";
 
 const UunMountTest = () => {
+  useEffect(() => {
+    console.log("Mount!");
+
+    return () => {
+      console.log("UnMount");
+    };
+  }, []);
+
   return <div>Unmount Testing Component</div>;
 };
 
