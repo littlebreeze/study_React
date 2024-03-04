@@ -22,7 +22,9 @@ const reducer = (state, action) => {
       break;
     }
     case "EDIT": {
-      newState = state.map((it) => (it.id === action.data.id ? { ...action.data } : it));
+      newState = state.map((it) =>
+        it.id === action.data.id ? { ...action.data } : it
+      );
       break;
     }
     default:
@@ -34,8 +36,41 @@ const reducer = (state, action) => {
 export const DiaryStateContext = React.createContext();
 export const DiaryDispatchContext = React.createContext();
 
+const dummyData = [
+  {
+    id: 1,
+    emotion: 1,
+    content: "today's diary #1",
+    date: 1709514004397,
+  },
+  {
+    id: 2,
+    emotion: 2,
+    content: "today's diary #2",
+    date: 1709514004398,
+  },
+  {
+    id: 3,
+    emotion: 3,
+    content: "today's diary #3",
+    date: 1709514004399,
+  },
+  {
+    id: 4,
+    emotion: 4,
+    content: "today's diary #4",
+    date: 1709514004400,
+  },
+  {
+    id: 5,
+    emotion: 5,
+    content: "today's diary #5",
+    date: 1709514004401,
+  },
+];
+
 function App() {
-  const [data, dispatch] = useReducer(reducer, []);
+  const [data, dispatch] = useReducer(reducer, dummyData);
 
   const dataId = useRef(0);
 
