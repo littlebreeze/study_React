@@ -25,6 +25,12 @@ const DiaryList = ({ diaryList }) => {
   const [sortType, setSortType] = useState("latest");
 
   const getProcessedDiaryList = () => {
+    const compare = (a, b) => {
+      if (sortType === "latest") {
+        return b.date - a.date;
+      }
+    };
+
     const copyList = JSON.parse(JSON.stringify(diaryList));
   };
 
