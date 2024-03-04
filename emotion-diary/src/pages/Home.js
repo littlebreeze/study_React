@@ -35,10 +35,6 @@ const Home = () => {
     }
   }, [diaryList, curDate]);
 
-  useEffect(() => {
-    console.log(data);
-  }, [data]);
-
   // 헤더 좌우 월 변경 버튼
   const increaseMonth = () => {
     setCurDate(
