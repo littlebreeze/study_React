@@ -1,8 +1,9 @@
 /* eslint-disable react/prop-types */
-const Button = (props) => {
+const Button = ({ text, color, children }) => {
   return (
-    <button style={{ color: props.color }}>
-      {props.text} - {props.color.toUpperCase()}
+    <button style={{ color: color }}>
+      {text} - {color.toUpperCase()}
+      {children}
     </button>
   );
 };
