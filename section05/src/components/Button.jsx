@@ -1,7 +1,14 @@
 /* eslint-disable react/prop-types */
 const Button = ({ text, color, children }) => {
+  const onClickBtn = (e) => {
+    console.log(e);
+  };
   return (
-    <button style={{ color: color }}>
+    <button
+      onClick={onClickBtn}
+      // onMouseEnter={onClickBtn}
+      style={{ color: color }}
+    >
       {text} - {color.toUpperCase()}
       {children}
     </button>
