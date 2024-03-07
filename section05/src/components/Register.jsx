@@ -7,6 +7,13 @@ const Register = () => {
     bio: '자기소개',
   });
 
+  const onChange = (e) => {
+    setInput({
+      ...input,
+      [e.target.name]: e.target.value,
+    });
+  };
+
   const onChangeName = (e) => {
     setInput({ ...input, name: e.target.value });
   };
@@ -30,22 +37,25 @@ const Register = () => {
     <div className='Register'>
       <div>
         <input
+          name='name'
           value={input.name}
-          onChange={onChangeName}
+          onChange={onChange}
           placeholder='이름'
         />
       </div>
       <div>
         <input
           type='date'
+          name='birth'
           value={input.birth}
-          onChange={onChangeBirth}
+          onChange={onChange}
         />
       </div>
       <div>
         <select
+          name='country'
           value={input.country}
-          onChange={onChangeCountry}
+          onChange={onChange}
         >
           <option value='kr'>한국</option>
           <option value='us'>미국</option>
@@ -54,8 +64,9 @@ const Register = () => {
       </div>
       <div>
         <textarea
+          name='bio'
           value={input.bio}
-          onChange={onChangeBio}
+          onChange={onChange}
           placeholder='자기소개'
         />
       </div>
