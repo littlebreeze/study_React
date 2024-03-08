@@ -3,10 +3,10 @@ const Register = () => {
   const countRef = useRef(0);
 
   const [input, setInput] = useState({
-    name: '이름',
+    name: '',
     birth: '',
-    country: 'uk',
-    bio: '자기소개',
+    country: '',
+    bio: '',
   });
 
   const onChange = (e) => {
@@ -18,10 +18,19 @@ const Register = () => {
     });
   };
 
+  const inputRef = useRef();
+  const onSubmit = () => {
+    if (input.name === '') {
+      // 이름 입력하는 DOM 요소 포커스
+      inputRef.current.focus();
+    }
+  };
+
   return (
     <div className='Register'>
       <div>
         <input
+          ref={inputRef}
           name='name'
           value={input.name}
           onChange={onChange}
@@ -42,6 +51,7 @@ const Register = () => {
           value={input.country}
           onChange={onChange}
         >
+          <option></option>
           <option value='kr'>한국</option>
           <option value='us'>미국</option>
           <option value='uk'>영국</option>
@@ -55,6 +65,7 @@ const Register = () => {
           placeholder='자기소개'
         />
       </div>
+      <button onClick={onSubmit}>제출</button>
     </div>
   );
 };
