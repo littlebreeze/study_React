@@ -1,5 +1,7 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 const Register = () => {
+  const countRef = useRef(0);
+
   const [input, setInput] = useState({
     name: '이름',
     birth: '',
@@ -8,29 +10,12 @@ const Register = () => {
   });
 
   const onChange = (e) => {
+    countRef.current++;
+    console.log(countRef.current);
     setInput({
       ...input,
       [e.target.name]: e.target.value,
     });
-  };
-
-  const onChangeName = (e) => {
-    setInput({ ...input, name: e.target.value });
-  };
-
-  const onChangeBirth = (e) => {
-    setInput({ ...input, birth: e.target.value });
-  };
-
-  const onChangeCountry = (e) => {
-    setInput({
-      ...input,
-      country: e.target.value,
-    });
-  };
-
-  const onChangeBio = (e) => {
-    setInput({ ...input, bio: e.target.value });
   };
 
   return (
