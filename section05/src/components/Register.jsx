@@ -11,7 +11,6 @@ const Register = () => {
 
   const onChange = (e) => {
     countRef.current++;
-    console.log(countRef.current);
     setInput({
       ...input,
       [e.target.name]: e.target.value,
@@ -19,6 +18,7 @@ const Register = () => {
   };
 
   const inputRef = useRef();
+
   const onSubmit = () => {
     if (input.name === '') {
       // 이름 입력하는 DOM 요소 포커스
