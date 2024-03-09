@@ -1,13 +1,19 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
 import Controller from "./components/Controller";
 import Viewer from "./components/Viewer";
+import Even from "./components/Even";
 
 function App() {
   const [count, setCount] = useState(0);
+  const [input, setInput] = useState("");
 
-  // Controller에게 count, setCount를 둘 다 넘겨줄 수도 있지만
-  // 여기서 이벤트 핸들러 만들어 넘기기!
+  useEffect(() => {
+    console.log(
+      `count: ${count} / input : ${input}`
+    );
+  }, [count, input]);
+
   const onClickHandler = (value) => {
     setCount(count + value);
   };
@@ -16,7 +22,16 @@ function App() {
     <div className="App">
       <h1>Simple Counter</h1>
       <section>
+        <input
+          value={input}
+          onChange={(e) =>
+            setInput(e.target.value)
+          }
+        />
+      </section>
+      <section>
         <Viewer count={count} />
+      {count % 2 == 0 ? <Even /> : null}
       </section>
       <section>
         <Controller
