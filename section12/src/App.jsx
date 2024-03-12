@@ -1,62 +1,42 @@
-import "./App.css";
-import { Routes, Route, Link, useNavigate } from "react-router-dom";
-import New from "./pages/New";
-import Home from "./pages/Home";
-import Diary from "./pages/Diary";
-import Notfound from "./pages/Notfound";
+import './App.css';
+import { useReducer } from 'react';
+import { Routes, Route, Link, useNavigate } from 'react-router-dom';
+import New from './pages/New';
+import Home from './pages/Home';
+import Diary from './pages/Diary';
+import Edit from './pages/Edit';
+import Notfound from './pages/Notfound';
 
-import Button from "./components/Button";
-import Header from "./components/Header";
+const mockData = [
+  {
+    id: 1,
+    createdDate: new Date().getTime(),
+    emotionId: 1,
+    content: '1번 일기 내용',
+  },
+  {
+    id: 2,
+    createdDate: new Date().getTime(),
+    emotionId: 3,
+    content: '3번인 일기의 내용입니다',
+  },
+];
 
-/*
-  1. / : 모든 일기를 조회하는 페이지 (HOME)
-  2. /new : 새로운 일기를 작성하는 페이지 (NEW)
-  3. /diary : 일기를 상세히 조회하는 페이지 (DIARY)
-  */
+function reducer(state, action) {
+  return state;
+}
 
 function App() {
-  const nav = useNavigate();
-
-  const onClickButton = () => {
-    nav("/new");
-  };
+  const [data, dispatch] = useReducer(reducer, mockData);
 
   return (
     <>
-      <Header
-        title={"Header"}
-        leftChild={<Button text={"Left"} />}
-        rightChild={<Button text={"Right"} />}
-      />
-      <Button
-        text={"123"}
-        // type={"DEFAULT"}
-        onClick={() => {
-          console.log("123번 버튼 클릭!");
-        }}
-      />
-
-      <Button
-        text={"123"}
-        type={"POSITIVE"}
-        onClick={() => {
-          console.log("123번 버튼 클릭!");
-        }}
-      />
-
-      <Button
-        text={"123"}
-        type={"NEGATIVE"}
-        onClick={() => {
-          console.log("123번 버튼 클릭!");
-        }}
-      />
-
       <Routes>
-        <Route path="/" element={<Home />}></Route>
-        <Route path="/new" element={<New />}></Route>
-        <Route path="/diary/:id" element={<Diary />}></Route>
-        <Route path="*" element={<Notfound />}></Route>
+        <Route path='/' element={<Home />}></Route>
+        <Route path='/new' element={<New />}></Route>
+        <Route path='/diary/:id' element={<Diary />}></Route>
+        <Route path='/edit/:id' element={<Edit />}></Route>
+        <Route path='*' element={<Notfound />}></Route>
       </Routes>
     </>
   );
