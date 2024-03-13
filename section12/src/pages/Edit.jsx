@@ -9,7 +9,7 @@ const Edit = () => {
   const params = useParams();
   const nav = useNavigate();
 
-  const { onDelete } = useContext(DiaryDispatchContext);
+  const { onDelete, onUpdate } = useContext(DiaryDispatchContext);
   const data = useContext(DiaryStateContext);
 
   const [curDiaryItem, setCurDiaryItem] = useState({});
@@ -38,6 +38,18 @@ const Edit = () => {
     }
   };
 
+  const onSubmit = (input) => {
+    if (window.confirm('정말로 수정하시겠습니까?')) {
+      onUpdate(
+        params.id,
+        input.createdDate.getTime(),
+        input.emotionId,
+        input.content
+      );
+      nav('/', { replace: true });
+    }
+  };
+
   return (
     <div>
       <Header
@@ -53,7 +65,7 @@ const Edit = () => {
           />
         }
       />
-      <Editor />
+      <Editor initData={curDiaryItem} onSubmit={onSubmit} />
     </div>
   );
 };
