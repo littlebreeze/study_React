@@ -1,6 +1,6 @@
 @font-face {
-  font-family: "NamumPenScript";
-  src: url("/NanumPenScript-Regular.ttf");
+  font-family: 'NamumPenScript';
+  src: url('/NanumPenScript-Regular.ttf');
 }
 
 html,
@@ -8,6 +8,7 @@ body {
   margin: 0px;
   width: 100%;
   background-color: rgb(246, 246, 246);
+  display: flex;
 }
 
 #root {
@@ -22,5 +23,5 @@ body {
 }
 
 body * {
-  font-family: "NamumPenScript";
+  font-family: 'NamumPenScript';
 }
