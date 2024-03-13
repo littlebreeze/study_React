@@ -35,7 +35,6 @@ const Home = () => {
   const [pivotDate, setPivotDate] = useState(new Date());
 
   const monthlyData = getMonthlyData(pivotDate, data);
-  console.log(monthlyData);
 
   const onIncreaseMonth = () => {
     setPivotDate(
