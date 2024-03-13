@@ -1,5 +1,5 @@
 import { useParams, useNavigate } from 'react-router-dom';
-import { useContext, useEffect } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import Header from '../components/Header';
 import Button from '../components/Button';
 import Editor from '../components/Editor';
@@ -12,9 +12,9 @@ const Edit = () => {
   const { onDelete } = useContext(DiaryDispatchContext);
   const data = useContext(DiaryStateContext);
 
-  useEffect(() => {}, [params.id, data]);
+  const [curDiaryItem, setCurDiaryItem] = useState({});
 
-  const getCurrentDiaryItem = () => {
+  useEffect(() => {
     const currentDiaryItem = data.find(
       (item) => String(item.id) === String(params.id)
     );
@@ -24,11 +24,8 @@ const Edit = () => {
       nav('/', { replace: true });
     }
 
-    return currentDiaryItem;
-  };
-
-  const currentDiaryItem = getCurrentDiaryItem();
-  console.log(currentDiaryItem);
+    setCurDiaryItem(currentDiaryItem);
+  }, [params.id, data]);
 
   const onClickDelete = () => {
     if (
