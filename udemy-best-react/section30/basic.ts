@@ -10,6 +10,17 @@ isInstructor = true;
 let hobbies: string[];
 hobbies = ['Sports', 'Cooking'];
 
-let person;
+// any 라는 타입이 있지만 그냥 js 되버림
+let person: {
+  name: string;
+  age: number;
+};
 
 person = { name: 'Max', age: 32 };
+// person = {isEmployee:true}
+
+// 객체 배열
+let people: {
+  name: string;
+  age: number;
+}[];
