@@ -1,16 +1,17 @@
+// 타입스크립트를 사용하는 어느 프로젝트에든 추가할 수 있다. (ts를 js로 컴파일하기 위해)
 {
   "compilerOptions": {
-    "target": "es5",
-    "lib": [
+    "target": "es5",  // 작성한 코드를 어떤 자바스크립트 버전으로 변환할 것인지
+    "lib": [  // 기본 타입스크립트 라이브러리
       "dom",
       "dom.iterable",
       "esnext"
     ],
-    "allowJs": true,
+    "allowJs": true,  // js 파일 포함 여부
     "skipLibCheck": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "strict": true,
+    "strict": true, // 엄격한 설정 적용. 묵시적 any 타입 불가
     "forceConsistentCasingInFileNames": true,
     "noFallthroughCasesInSwitch": true,
     "module": "esnext",
