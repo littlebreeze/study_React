@@ -57,5 +57,6 @@ function insertAtBeginning<T>(array: T[], value: T) {
 const demoArr = [1, 2, 3];
 const updatedArr = insertAtBeginning(demoArr, -1);
 const StringArr = insertAtBeginning(['1', '2', '3'], '4');
-updatedArr[0].split('');
+
+//updatedArr[0].split('');
 StringArr[0].split('');
