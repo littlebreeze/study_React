@@ -1,3 +1,5 @@
-export default function Main() {
+import Main from "./_component/Main";
+
+export default function Page() {
   return <Main />;
 }
