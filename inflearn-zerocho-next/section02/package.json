@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "classnames": "^2.5.1",
     "dayjs": "^1.11.10",
     "next": "13.5.5",
     "react": "^18",
