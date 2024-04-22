@@ -1,21 +1,21 @@
-import style from "./post.module.css";
-import Link from "next/link";
-// import dayjs from 'dayjs';
-// import relativeTime from 'dayjs/plugin/relativeTime';
-// import "dayjs/locale/ko";
+import style from './post.module.css';
+import Link from 'next/link';
+import dayjs from 'dayjs';
+import relativeTime from 'dayjs/plugin/relativeTime'; // 상대시간
+import 'dayjs/locale/ko'; // 한글 플러그인
 // import ActionButtons from "@/app/(afterLogin)/_component/ActionButtons";
 
-// dayjs.locale("ko");
-// dayjs.extend(relativeTime);
+dayjs.locale('ko');
+dayjs.extend(relativeTime);
 
 export default function Post() {
   const target = {
     User: {
-      id: "elonmusk",
-      nickname: "Elon Musk",
-      image: "/yRsRRjGO.jpg",
+      id: 'elonmusk',
+      nickname: 'Elon Musk',
+      image: '/yRsRRjGO.jpg',
     },
-    content: "클론코딩 라이브로 하니 너무 힘들어요 ㅠㅠ",
+    content: '클론코딩 라이브로 하니 너무 힘들어요 ㅠㅠ',
     createdAt: new Date(),
     Images: [],
   };
@@ -36,7 +36,7 @@ export default function Post() {
               <span className={style.postUserId}>@{target.User.id}</span>
               &nbsp; · &nbsp;
             </Link>
-            {/* <span className={style.postDate}>{dayjs(target.createdAt).fromNow(true)}</span> */}
+            <span className={style.postDate}>{dayjs(target.createdAt).fromNow(true)}</span>
           </div>
           <div>{target.content}</div>
           <div className={style.postImageSection}></div>
