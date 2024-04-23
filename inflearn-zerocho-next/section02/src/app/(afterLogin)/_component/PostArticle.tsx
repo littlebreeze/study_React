@@ -26,6 +26,7 @@ export default function PostArticle({ children, post }: Props) {
   };
 
   return (
+    // 사용자 이름 클릭, 게시글 클릭 이벤트 겹침 해결
     <article onClickCapture={onClick} className={style.post}>
       {children}
     </article>
