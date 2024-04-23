@@ -1,14 +1,14 @@
-"use client";
+"use client"
 
-import style from "./followRecommend.module.css";
+import style from './followRecommend.module.css';
 
 export default function FollowRecommend() {
   const onFollow = () => {};
 
   const user = {
-    id: "elonmusk",
-    nickname: "Elon Musk",
-    image: "/yRsRRjGO.jpg",
+    id: 'elonmusk',
+    nickname: 'Elon Musk',
+    image: '/yRsRRjGO.jpg'
   };
 
   return (
@@ -26,5 +26,5 @@ export default function FollowRecommend() {
         <button onClick={onFollow}>팔로우</button>
       </div>
     </div>
-  );
+  )
 }
